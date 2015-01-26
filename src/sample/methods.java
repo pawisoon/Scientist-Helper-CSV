@@ -641,7 +641,6 @@ public class methods {
             String line6 = "";
             String line7 = "";
 
-            //average for Z
 
 
             FileWriter writer = new FileWriter(outputCSV);
@@ -746,8 +745,6 @@ public class methods {
                 yAxis.setLabel("Y Axis");
                 // add starting data
 
-                //XYChart.Series<Number,Number> series = new XYChart.Series<Number,Number>();
-                //series.setName("Data Series 1");
                 double x = Double.parseDouble(data[0]);
                 double y = Double.parseDouble(data[7]);
                 if (line_count <= 99) {

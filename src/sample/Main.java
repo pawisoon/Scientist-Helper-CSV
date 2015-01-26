@@ -31,10 +31,10 @@ import static javafx.geometry.Pos.CENTER;
 public class Main extends Application {
     private Desktop desktop = Desktop.getDesktop();
     static Thread t = null;
-    String name1,name2,name3;
+    String name1, name2, name3;
 
     @Override
-    public void start(final Stage primaryStage){
+    public void start(final Stage primaryStage) {
 
         primaryStage.setTitle("Beata's tool");
         final File saveDir = new File("Beata's tool dir");
@@ -46,9 +46,9 @@ public class Main extends Application {
         pane.setVgap(10);
         pane.setHgap(10);
 
-        pane.setPadding(new Insets(25,25,25,25));
+        pane.setPadding(new Insets(25, 25, 25, 25));
 
-        Scene scene = new Scene(pane,1000,700);
+        Scene scene = new Scene(pane, 1000, 700);
         primaryStage.setResizable(false);
 
         scene.getStylesheets().add("sample/styl.css");
@@ -56,17 +56,15 @@ public class Main extends Application {
         javafx.scene.text.Text tit = new javafx.scene.text.Text("Choose files");
         tit.getStyleClass().add("title");
 
-        pane.add(tit,0,0,2,1);
-
-
+        pane.add(tit, 0, 0, 2, 1);
 
 
         final Button file1 = new Button("File 1");
         final Button file2 = new Button("File 2");
         final Button file3 = new Button("File 3");
-        file1.setPrefSize(100,25);
-        file2.setPrefSize(100,25);
-        file3.setPrefSize(100,25);
+        file1.setPrefSize(100, 25);
+        file2.setPrefSize(100, 25);
+        file3.setPrefSize(100, 25);
 
 
         final Button count = new Button("Proceed files");
@@ -82,14 +80,13 @@ public class Main extends Application {
         file3_name.getStyleClass().add("button");
 
 
-
         pane.add(file1, 0, 1);
-        pane.add(file1_name,3,1);
+        pane.add(file1_name, 3, 1);
         pane.add(file2, 0, 2);
-        pane.add(file2_name,3,2);
+        pane.add(file2_name, 3, 2);
         pane.add(file3, 0, 3);
-        pane.add(file3_name,3,3);
-        pane.add(count,0,6);
+        pane.add(file3_name, 3, 3);
+        pane.add(count, 0, 6);
 
         file1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -99,9 +96,9 @@ public class Main extends Application {
 
                 if (file != null) {
                     String f_name = file.toString();
-                    System.out.println(f_name.replace("\\","/"));
-                    int a = (f_name.replace("\\","/").lastIndexOf("/"));
-                    name1 = f_name.substring(a + 1, f_name.length()-4);
+                    System.out.println(f_name.replace("\\", "/"));
+                    int a = (f_name.replace("\\", "/").lastIndexOf("/"));
+                    name1 = f_name.substring(a + 1, f_name.length() - 4);
                     file1_name.setText(f_name);
                 }
             }
@@ -114,10 +111,10 @@ public class Main extends Application {
 
                 if (file != null) {
                     String f_name = file.toString();
-                    System.out.println(f_name.replace("\\","/"));
-                    int a = (f_name.replace("\\","/").lastIndexOf("/"));
+                    System.out.println(f_name.replace("\\", "/"));
+                    int a = (f_name.replace("\\", "/").lastIndexOf("/"));
                     //file2_name.setText(f_name.substring(a+1,f_name.length()-4));
-                    name2 = f_name.substring(a+1,f_name.length()-4);
+                    name2 = f_name.substring(a + 1, f_name.length() - 4);
                     file2_name.setText(f_name);
                 }
             }
@@ -130,10 +127,10 @@ public class Main extends Application {
 
                 if (file != null) {
                     String f_name = file.toString();
-                    System.out.println(f_name.replace("\\","/"));
-                    int a = (f_name.replace("\\","/").lastIndexOf("/"));
+                    System.out.println(f_name.replace("\\", "/"));
+                    int a = (f_name.replace("\\", "/").lastIndexOf("/"));
                     //file3_name.setText(f_name.substring(a+1,f_name.length()));
-                    name3 = f_name.substring(a+1,f_name.length()-4);
+                    name3 = f_name.substring(a + 1, f_name.length() - 4);
                     file3_name.setText(f_name);
                 }
             }
@@ -152,8 +149,7 @@ public class Main extends Application {
                         methods.addAndCountAveragePD1_PD0(file1_name.getText(), file2_name.getText(), file3_name.getText());
                         methods.addAndCountAveragePD2_PD1(file1_name.getText(), file2_name.getText(), file3_name.getText());
                         methods.normalizeDataFromPD0_PD1("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-                        methods.createCsvFile("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt",name1,name2,name3);
-
+                        methods.createCsvFile("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt", name1, name2, name3);
 
 
                         return null;
@@ -161,7 +157,7 @@ public class Main extends Application {
                 };
 
 
-                if(file1_name.getText() == "No file selected." || file1_name.getText() == "Add next file" || file2_name.getText()== "No file selected." || file2_name.getText()== "Add next file" || file3_name.getText() == "No file selected." || file3_name.getText() == "Add next file"){
+                if (file1_name.getText() == "No file selected." || file1_name.getText() == "Add next file" || file2_name.getText() == "No file selected." || file2_name.getText() == "Add next file" || file3_name.getText() == "No file selected." || file3_name.getText() == "Add next file") {
                     final Stage dialogStage = new Stage();
                     dialogStage.initModality(Modality.WINDOW_MODAL);
                     Button k = new Button("Ok");
@@ -186,8 +182,7 @@ public class Main extends Application {
                             dialogStage.close();
                         }
                     });
-                }
-                else {
+                } else {
                     Thread t = new Thread(task);
                     t.setDaemon(true);
                     t.start();
@@ -207,7 +202,7 @@ public class Main extends Application {
                     final Stage stage = new Stage();
                     final Scene scene = new Scene(pane);
                     final Button save = new Button("Save graph");
-                    pane.add(save,1,1);
+                    pane.add(save, 1, 1);
 
                     stage.setResizable(false);
 
@@ -224,7 +219,7 @@ public class Main extends Application {
                             WritableImage snapShot = scene.snapshot(null);
 
                             try {
-                                ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", new File("graph based on "+ name1 + " " + name2 + " " + name3 + " " + generated_at+".png"));
+                                ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", new File("graph based on " + name1 + " " + name2 + " " + name3 + " " + generated_at + ".png"));
                                 System.out.println("Graph generated!");
                                 stage.close();
                                 file1_name.setText("Add next file");
