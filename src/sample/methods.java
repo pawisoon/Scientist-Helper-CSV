@@ -605,7 +605,7 @@ public class methods {
         }
     }
 
-    public static void createCsvFile(String file1_string, String file2_string, String file3_string, String file4_string, String file5_string, String file6_string, String file7_string, String lel1,String lel2, String lel3) {
+    public static void createCsvFile(String file1_string, String file2_string, String file3_string, String file4_string, String file5_string, String file6_string, String file7_string, String lel1, String lel2, String lel3) {
         File file1 = new File(file1_string);
         File file2 = new File(file2_string);
         File file3 = new File(file3_string);
@@ -619,8 +619,6 @@ public class methods {
         String generated_at = df.format(date);
 
 
-        int iteration = 0;
-
         try {
             BufferedReader br1 = new BufferedReader(new FileReader(file1));
             BufferedReader br2 = new BufferedReader(new FileReader(file2));
@@ -630,7 +628,6 @@ public class methods {
             BufferedReader br6 = new BufferedReader(new FileReader(file6));
             BufferedReader br7 = new BufferedReader(new FileReader(file7));
 
-            BufferedWriter out;
 
 
             File outputCSV = new File("stats based on " + lel1 + " " + lel2 + " " + lel3 + " " + generated_at + ".csv");
@@ -654,7 +651,7 @@ public class methods {
             while ((line2 = br2.readLine()) != null && (line3 = br3.readLine()) != null && (line = br1.readLine()) != null && (line4 = br4.readLine()) != null && (line5 = br5.readLine()) != null && (line6 = br6.readLine()) != null && (line7 = br7.readLine()) != null) {
 
 
-                writer.append(line + "," + line + "," + line2 + "," + line3 + "," + line4 + "," + line5 + "," + line6 + ","+ line7);
+                writer.append(line + "," + line + "," + line2 + "," + line3 + "," + line4 + "," + line5 + "," + line6 + "," + line7);
                 writer.append("\n");
 
             }
@@ -667,7 +664,7 @@ public class methods {
             br7.close();
             writer.flush();
             writer.close();
-            cleanUpOldFiles("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt","C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt");
+            cleanUpOldFiles("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt");
 
 
         } catch (FileNotFoundException e) {
@@ -689,8 +686,6 @@ public class methods {
         File f7 = new File(file7_string);
 
 
-
-
         try {
             f1.delete();
             f2.delete();
@@ -709,7 +704,7 @@ public class methods {
 
     }
 
-    public static AreaChart<Number,Number> getdataAndCreateChart(String file_string) {
+    public static AreaChart<Number, Number> getdataAndCreateChart(String file_string) {
         File file1 = new File(file_string);
 
 
@@ -724,8 +719,6 @@ public class methods {
         Date date = new Date();
         SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy hh.mm a");
         String generated_at = df.format(date);
-
-
 
 
         AreaChart<Number, Number> ac = new AreaChart<Number, Number>(xAxis, yAxis);
@@ -748,7 +741,7 @@ public class methods {
 
 
                 // setup chart
-                ac.setTitle("Chart "+generated_at);
+                ac.setTitle("Chart " + generated_at);
                 xAxis.setLabel("X Axis");
                 yAxis.setLabel("Y Axis");
                 // add starting data
@@ -789,75 +782,14 @@ public class methods {
         return ac;
     }
 
-    public static void waitTime(long millisecond){
+    public static void waitTime(long millisecond) {
         long max = millisecond;
-        for(long i = 0;  i < max; i++){
-            for(long j = 0;  j < max; j++){
+        for (long i = 0; i < max; i++) {
+            for (long j = 0; j < max; j++) {
 
             }
         }
     }
-
-   /* public static void makeAndSaveGraph(){
-
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh.mm a");
-        final String generated_at = format.format(date);
-        final File outputCSV = new File("stats " + generated_at + ".csv");
-        System.out.println(outputCSV.toString());
-
-
-        try {
-            Group root = new Group();
-            final Scene scene = new Scene(root);
-
-            primaryStage.setScene(scene);
-
-            final Stage stage = new Stage();
-            stage.setTitle("Wykres");
-            stage.setScene(scene);
-            root.getChildren().add(getdataAndCreateChart(outputCSV.toString()));
-            stage.show();
-
-
-            WritableImage snapShot = scene.snapshot(null);
-
-            try {
-                ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", new File("stats" + generated_at + ".png"));
-                System.out.println("Graph generated!");
-
-
-            } catch (IIOException e) {
-                System.out.println("DUPGA");
-                e.printStackTrace();
-            }
-
-            //stage.close();
-            final Stage dialogStage = new Stage();
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            Button k = new Button("Ok");
-            dialogStage.setScene(new Scene(VBoxBuilder.create().
-                    children(new Text("Files proceeded successfully!"), k).
-                    alignment(Pos.CENTER).padding(new Insets(5)).build()));
-
-            dialogStage.show();
-            k.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(final ActionEvent event) {
-
-                    dialogStage.close();
-                    //primaryStage.close();
-
-                }
-            });
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    } */
-
 
 
 }
