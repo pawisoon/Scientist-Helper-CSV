@@ -1,0 +1,51 @@
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
+*.iml
+
+## Directory-based project format:
+.idea/
+# if you remove the above rule, at least ignore the following:
+
+# User-specific stuff:
+ .idea/workspace.xml
+ .idea/tasks.xml
+ .idea/dictionaries
+
+ .idea/ant.xml
+ .idea/artifacts/JavaFXApp.xml
+ .idea/artifacts/Tool_v2_jar.xml
+ .idea/compiler.xml
+ .idea/copyright/profiles_settings.xml
+ .idea/description.html
+ .idea/dictionaries/Wape.xml
+ .idea/encodings.xml
+ .idea/gradle.xml
+ .idea/misc.xml
+ .idea/modules.xml
+ .idea/scopes/scope_settings.xml
+ .idea/uiDesigner.xml
+ .idea/vcs.xml
+ .idea/workspace.xml
+
+# Sensitive or high-churn files:
+# .idea/dataSources.ids
+# .idea/dataSources.xml
+# .idea/sqlDataSources.xml
+# .idea/dynamic.xml
+# .idea/uiDesigner.xml
+
+# Gradle:
+# .idea/gradle.xml
+# .idea/libraries
+
+# Mongo Explorer plugin:
+# .idea/mongoSettings.xml
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+out/
