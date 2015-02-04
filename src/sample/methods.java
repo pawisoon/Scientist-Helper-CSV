@@ -630,7 +630,7 @@ public class methods {
 
 
 
-            File outputCSV = new File("stats based on " + lel1 + " " + lel2 + " " + lel3 + " " + generated_at + ".csv");
+            File outputCSV = new File("stats based on " + lel1 + " " + generated_at + ".csv");
 
 
             String line = "";

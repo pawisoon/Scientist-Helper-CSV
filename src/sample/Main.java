@@ -1,5 +1,7 @@
 package sample;
 
+import com.sun.javafx.menu.MenuBase;
+import com.sun.javafx.scene.control.GlobalMenuAdapter;
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.embed.swing.SwingFXUtils;
@@ -7,10 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -23,7 +27,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
+import java.util.List;
 
 import static javafx.geometry.Pos.CENTER;
 
@@ -38,8 +43,10 @@ public class Main extends Application {
 
         primaryStage.setTitle("Beata's tool");
         final File saveDir = new File("Beata's tool dir");
+
         GridPane pane = new GridPane();
         final FileChooser fileChooser = new FileChooser();
+
 
         pane.setAlignment(CENTER);
 
@@ -59,10 +66,11 @@ public class Main extends Application {
         pane.add(tit, 0, 0, 2, 1);
 
 
-        final Button file1 = new Button("File 1");
+        final Button file1 = new Button("Add files");
+        final Button update = new Button("Check for updates");
         final Button file2 = new Button("File 2");
         final Button file3 = new Button("File 3");
-        file1.setPrefSize(100, 25);
+        file1.setPrefSize(300, 25);
         file2.setPrefSize(100, 25);
         file3.setPrefSize(100, 25);
 
@@ -78,28 +86,46 @@ public class Main extends Application {
         file1_name.getStyleClass().add("button");
         file2_name.getStyleClass().add("button");
         file3_name.getStyleClass().add("button");
+        count.getStyleClass().add("button_count");
 
 
-        pane.add(file1, 0, 1);
-        pane.add(file1_name, 3, 1);
-        pane.add(file2, 0, 2);
-        pane.add(file2_name, 3, 2);
-        pane.add(file3, 0, 3);
-        pane.add(file3_name, 3, 3);
-        pane.add(count, 0, 6);
+        pane.add(file1_name, 0, 1);
+        pane.add(file2_name, 0, 2);
+        pane.add(file3_name, 0, 3);
+        pane.add(count, 1, 6);
+        pane.add(file1, 0, 6);
+        pane.add(update, 2, 6);
 
         file1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 methods.configureFileChooser(fileChooser);
-                File file = fileChooser.showOpenDialog(primaryStage);
+                List<File> file = fileChooser.showOpenMultipleDialog(primaryStage);
 
                 if (file != null) {
                     String f_name = file.toString();
                     System.out.println(f_name.replace("\\", "/"));
-                    int a = (f_name.replace("\\", "/").lastIndexOf("/"));
-                    name1 = f_name.substring(a + 1, f_name.length() - 4);
-                    file1_name.setText(f_name);
+                    //int a = (f_name.replace("\\", "/").lastIndexOf("/"));
+                    //name1 = f_name.substring(a + 1, f_name.length() - 4);
+                    String names[] = f_name.split(",");
+
+
+                    name1 = f_name.substring(names[0].lastIndexOf("/") + 1, names[0].length() - 4);
+
+                    System.out.println(name1);
+
+                    file1_name.setText(names[0].substring(1, names[0].length()));
+
+
+                    name2 = f_name.substring(names[1].lastIndexOf("/") + 1, names[1].length() - 4);
+                    System.out.println(name2);
+                    file2_name.setText(names[1].substring(1, names[1].length()));
+
+                    name3 = f_name.substring(names[2].lastIndexOf("/") + 1, names[2].length() - 5);
+                    System.out.println(name3);
+                    file3_name.setText(names[2].substring(1, names[2].length() - 1));
+
+
                 }
             }
         });
@@ -135,6 +161,7 @@ public class Main extends Application {
                 }
             }
         });
+
         count.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(final ActionEvent event) {
@@ -194,7 +221,7 @@ public class Main extends Application {
                     Date date = new Date();
                     SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy hh.mm a");
                     final String generated_at = format.format(date);
-                    final File outputCSV = new File("stats based on " + name1 + " " + name2 + " " + name3 + " " + generated_at + ".csv");
+                    final File outputCSV = new File("stats based on " + name1 + " " + generated_at + ".csv");
 
                     System.out.println(outputCSV.toString());
 
@@ -219,7 +246,7 @@ public class Main extends Application {
                             WritableImage snapShot = scene.snapshot(null);
 
                             try {
-                                ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", new File("graph based on " + name1 + " " + name2 + " " + name3 + " " + generated_at + ".png"));
+                                ImageIO.write(SwingFXUtils.fromFXImage(snapShot, null), "png", new File("graph based on " + name1 + " " + generated_at + ".png"));
                                 System.out.println("Graph generated!");
                                 stage.close();
                                 file1_name.setText("Add next file");
@@ -242,8 +269,10 @@ public class Main extends Application {
 
             }
         });
+
         primaryStage.setScene(scene);
         primaryStage.show();
+
 
     }
 }
