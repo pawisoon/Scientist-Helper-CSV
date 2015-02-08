@@ -1,6 +1,6 @@
 package sample;
 
-import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.FileChooser;
@@ -703,7 +703,7 @@ public class methods {
 
     }
 
-    public static AreaChart<Number, Number> getdataAndCreateChart(String file_string) {
+    public static LineChart<Number, Number> getdataAndCreateChart(String file_string) {
         File file1 = new File(file_string);
 
 
@@ -720,7 +720,7 @@ public class methods {
         String generated_at = df.format(date);
 
 
-        AreaChart<Number, Number> ac = new AreaChart<Number, Number>(xAxis, yAxis);
+        LineChart<Number, Number> ac = new LineChart<Number, Number>(xAxis, yAxis);
         int iteration = 0;
 
         try {
