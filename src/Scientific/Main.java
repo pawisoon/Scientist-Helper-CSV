@@ -200,7 +200,7 @@ public class Main extends Application {
         count.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(final ActionEvent event) {
-
+                //todo clean up this mess!!!!!
                 final Task task = new Task<Void>() {
                     @Override
                     protected Void call() throws Exception {
