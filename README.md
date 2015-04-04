@@ -7,7 +7,9 @@ Also creates graphs. Java 8 needed.
 Works perfect with Windows Vista/7/8/8.1 and OSX 10.10 + (little bugfix soon)
 
 #Changelog:
+
 Version 1.2 Relased - 4.04.2015:
+
 -Better and bigger charts
 -Save your chart 
 -Check for software update
@@ -15,6 +17,7 @@ Version 1.2 Relased - 4.04.2015:
 
 
 #TODO
+
 - clean up code!!!
 - add new features for future usage
 - add OS detection and fix directiory creation
