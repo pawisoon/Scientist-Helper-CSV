@@ -10,10 +10,10 @@ Works perfect with Windows Vista/7/8/8.1 and OSX 10.10 + (little bugfix soon)
 
 Version 1.2 Relased - 4.04.2015:
 
--Better and bigger charts
--Save your chart 
--Check for software update
--Enjoy new design
+- Better and bigger charts
+- Save your chart 
+- Check for software update
+- Enjoy new design
 
 
 #TODO
