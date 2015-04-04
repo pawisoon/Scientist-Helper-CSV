@@ -1,9 +1,22 @@
+
 package Scientific;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.io.*;
 import java.nio.file.FileSystemNotFoundException;
@@ -566,7 +579,7 @@ public class methods {
 
     }
 
-    public static void saveDataFrom1File(String file1_string){
+    public static void saveDataFrom1File(String file1_string) {
         File file1 = new File(file1_string);
 
 
@@ -579,15 +592,11 @@ public class methods {
             double data = 0;
 
 
-
             File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
             File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1.txt");
 
 
-
             String line = "";
-
-
 
 
             FileOutputStream fos = new FileOutputStream(f3);
@@ -602,7 +611,6 @@ public class methods {
 
 
                 data = Double.parseDouble(data1[5]);
-
 
 
                 bw.write(String.valueOf(data));
@@ -622,7 +630,7 @@ public class methods {
         }
     }
 
-    public static void saveDataFrom2File(String file1_string){
+    public static void saveDataFrom2File(String file1_string) {
         File file1 = new File(file1_string);
 
 
@@ -635,15 +643,11 @@ public class methods {
             double data = 0;
 
 
-
             File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
             File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2.txt");
 
 
-
             String line = "";
-
-
 
 
             FileOutputStream fos = new FileOutputStream(f3);
@@ -658,7 +662,6 @@ public class methods {
 
 
                 data = Double.parseDouble(data1[5]);
-
 
 
                 bw.write(String.valueOf(data));
@@ -678,7 +681,7 @@ public class methods {
         }
     }
 
-    public static void saveDataFrom3File(String file1_string){
+    public static void saveDataFrom3File(String file1_string) {
         File file1 = new File(file1_string);
 
 
@@ -691,15 +694,11 @@ public class methods {
             double data = 0;
 
 
-
             File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
             File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3.txt");
 
 
-
             String line = "";
-
-
 
 
             FileOutputStream fos = new FileOutputStream(f3);
@@ -714,7 +713,6 @@ public class methods {
 
 
                 data = Double.parseDouble(data1[5]);
-
 
 
                 bw.write(String.valueOf(data));
@@ -735,7 +733,6 @@ public class methods {
     }
 
 
-
     public static void normalizeDataFromPD0_PD1(String file1_string) {
         File f1 = new File(file1_string);
 
@@ -751,7 +748,6 @@ public class methods {
             BufferedReader br = new BufferedReader(new FileReader(f1));
             FileOutputStream fos = new FileOutputStream(output1);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-
 
 
             String line;
@@ -778,25 +774,25 @@ public class methods {
         }
     }
 
-    public static void normalizeDataFromFile1(String file1_string){
+    public static void normalizeDataFromFile1(String file1_string) {
         File f1 = new File(file1_string);
         File output = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt");
 
         int counter = 0;
         double firstValueInFile = 0;
         double data;
-        try{
+        try {
             BufferedReader br = new BufferedReader(new FileReader(f1));
             FileOutputStream fos = new FileOutputStream(output);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
             String line;
-            while((line = br.readLine())!=null){
-                if(counter == 0){
+            while ((line = br.readLine()) != null) {
+                if (counter == 0) {
                     firstValueInFile = Double.parseDouble(line);
                     counter++;
                 }
-                data = Double.parseDouble(line)/firstValueInFile;
+                data = Double.parseDouble(line) / firstValueInFile;
 
                 bw.write(String.valueOf(data));
                 bw.newLine();
@@ -807,32 +803,32 @@ public class methods {
             bw.close();
             System.out.println("normalized PD0-PD1 for file 1 generated");
 
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void normalizeDataFromFile2(String file1_string){
+    public static void normalizeDataFromFile2(String file1_string) {
         File f1 = new File(file1_string);
         File output = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt");
 
         int counter = 0;
         double firstValueInFile = 0;
         double data;
-        try{
+        try {
             BufferedReader br = new BufferedReader(new FileReader(f1));
             FileOutputStream fos = new FileOutputStream(output);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
             String line;
-            while((line = br.readLine())!=null){
-                if(counter == 0){
+            while ((line = br.readLine()) != null) {
+                if (counter == 0) {
                     firstValueInFile = Double.parseDouble(line);
                     counter++;
                 }
-                data = Double.parseDouble(line)/firstValueInFile;
+                data = Double.parseDouble(line) / firstValueInFile;
 
                 bw.write(String.valueOf(data));
                 bw.newLine();
@@ -843,32 +839,32 @@ public class methods {
             bw.close();
             System.out.println("normalized PD0-PD1 for file 2 generated");
 
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void normalizeDataFromFile3(String file1_string){
+    public static void normalizeDataFromFile3(String file1_string) {
         File f1 = new File(file1_string);
         File output = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt");
 
         int counter = 0;
         double firstValueInFile = 0;
         double data;
-        try{
+        try {
             BufferedReader br = new BufferedReader(new FileReader(f1));
             FileOutputStream fos = new FileOutputStream(output);
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 
             String line;
-            while((line = br.readLine())!=null){
-                if(counter == 0){
+            while ((line = br.readLine()) != null) {
+                if (counter == 0) {
                     firstValueInFile = Double.parseDouble(line);
                     counter++;
                 }
-                data = Double.parseDouble(line)/firstValueInFile;
+                data = Double.parseDouble(line) / firstValueInFile;
 
                 bw.write(String.valueOf(data));
                 bw.newLine();
@@ -879,9 +875,9 @@ public class methods {
             bw.close();
             System.out.println("normalized PD0-PD1 for file 3 generated");
 
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -919,7 +915,6 @@ public class methods {
             BufferedReader br10 = new BufferedReader(new FileReader(file10));
 
 
-
             File outputCSV = new File("stats based on " + lel1 + " " + generated_at + ".csv");
 
 
@@ -931,10 +926,9 @@ public class methods {
             String line6 = "";
             String line7 = "";
 
-            String line8 ="";
-            String line9 ="";
-            String line10="";
-
+            String line8 = "";
+            String line9 = "";
+            String line10 = "";
 
 
             FileWriter writer = new FileWriter(outputCSV);
@@ -962,7 +956,6 @@ public class methods {
             writer.close();
 
 
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
 
@@ -972,7 +965,7 @@ public class methods {
 
     }
 
-    public static void cleanUpOldFiles(String file1_string, String file2_string, String file3_string, String file4_string, String file5_string, String file6_string, String file7_string) {
+    public static void cleanUpOldFiles(String file1_string, String file2_string, String file3_string, String file4_string, String file5_string, String file6_string, String file7_string, String file8_string, String file9_string, String file10_string, String file11_string, String file12_string, String file13_string) {
         File f1 = new File(file1_string);
         File f2 = new File(file2_string);
         File f3 = new File(file3_string);
@@ -980,6 +973,13 @@ public class methods {
         File f5 = new File(file5_string);
         File f6 = new File(file6_string);
         File f7 = new File(file7_string);
+
+        File f8 = new File(file8_string);
+        File f9 = new File(file9_string);
+        File f10 = new File(file10_string);
+        File f11 = new File(file11_string);
+        File f12 = new File(file12_string);
+        File f13 = new File(file13_string);
 
 
         try {
@@ -990,6 +990,12 @@ public class methods {
             f5.delete();
             f6.delete();
             f7.delete();
+            f8.delete();
+            f9.delete();
+            f10.delete();
+            f11.delete();
+            f12.delete();
+            f13.delete();
 
 
             System.out.println("Cleaned up!");
@@ -1000,12 +1006,12 @@ public class methods {
 
     }
 
-    public static LineChart<Number, Number> getdataAndCreateChart(String file_string,String filename) {
+    public static LineChart<Number, Number> getdataAndCreateChart(String file_string, String filename) {
         File file1 = new File(file_string);
 
 
         NumberAxis xAxis = new NumberAxis();
-        NumberAxis yAxis = new NumberAxis(0.85,1.6,0.05);
+        NumberAxis yAxis = new NumberAxis(0.85, 1.6, 0.05);
 
 
         int line_count = 0;
@@ -1044,9 +1050,6 @@ public class methods {
                     continue;
                 }
                 String data[] = line1.split(split_by);
-                String data1[] = line1.split(split_by);
-                String data2[] = line1.split(split_by);
-                String data3[] = line1.split(split_by);
 
 
                 // setup chart
@@ -1065,9 +1068,9 @@ public class methods {
                     full_data1[line_count] = x;
                     full_data2[line_count] = y;
 
-                    full_data_file1_2[line_count]=y1;
-                    full_data_file2_2[line_count]=y2;
-                    full_data_file3_2[line_count]=y3;
+                    full_data_file1_2[line_count] = y1;
+                    full_data_file2_2[line_count] = y2;
+                    full_data_file3_2[line_count] = y3;
                 }
                 line_count++;
 
@@ -1103,20 +1106,17 @@ public class methods {
 
             XYChart.Series series3 = new XYChart.Series();
             int x3 = 0;
-            series3.setName("1 File normalised");
+            series3.setName("3 File normalised");
             while (x3 <= 99) {
-                series1.getData().add(new XYChart.Data(full_data1[x3], full_data_file1_2[x3]));
+                series1.getData().add(new XYChart.Data(full_data1[x3], full_data_file3_2[x3]));
                 x3++;
             }
 
 
+            ac.getData().addAll(series, series1, series2, series3);
 
 
-
-            ac.getData().addAll(series,series1,series2,series3);
-
-
-            cleanUpOldFiles("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt");
+            cleanUpOldFiles("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3.txt");
 
 
         } catch (FileNotFoundException e) {
@@ -1135,5 +1135,21 @@ public class methods {
 
             }
         }
+    }
+
+    public static String checkUpdate(double local_version) throws IOException {
+
+        String message="";
+        String url = "http://szydlowsky.com/apps/tool/version.html";
+        Document doc = Jsoup.connect(url).get();
+        String data = doc.text();
+        System.out.println(data);
+        if(Double.parseDouble(doc.text())==local_version){
+            message = "You are using the newest version.";
+        }
+        else if(local_version<Double.parseDouble(doc.text())) {
+            message = "Update found! Version "+doc.text()+" avaliable.";
+        }
+        return message;
     }
 }

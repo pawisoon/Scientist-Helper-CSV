@@ -9,8 +9,11 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -23,16 +26,17 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
 import java.util.List;
 
 import static javafx.geometry.Pos.CENTER;
 
 
 public class Main extends Application {
-    private Desktop desktop = Desktop.getDesktop();
     static Thread t = null;
+    final double software_version = 1.2;
     String name1, name2, name3;
+    private Desktop desktop = Desktop.getDesktop();
 
     @Override
     public void start(final Stage primaryStage) {
@@ -66,12 +70,14 @@ public class Main extends Application {
         final Button update = new Button("Check for updates");
         final Button file2 = new Button("File 2");
         final Button file3 = new Button("File 3");
+        final Button save = new Button("Save graph");
         file1.setPrefSize(300, 25);
         file2.setPrefSize(100, 25);
         file3.setPrefSize(100, 25);
 
 
         final Button count = new Button("Proceed files");
+
         final Text file1_name = new Text("No file selected.");
         final Text file2_name = new Text("No file selected.");
         final Text file3_name = new Text("No file selected.");
@@ -91,6 +97,8 @@ public class Main extends Application {
         pane.add(count, 1, 6);
         pane.add(file1, 0, 6);
         pane.add(update, 2, 6);
+        pane.add(save, 3, 6);
+
 
         file1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -101,8 +109,7 @@ public class Main extends Application {
                 if (file != null) {
                     String f_name = file.toString();
                     System.out.println(f_name.replace("\\", "/"));
-                    //int a = (f_name.replace("\\", "/").lastIndexOf("/"));
-                    //name1 = f_name.substring(a + 1, f_name.length() - 4);
+
                     String names[] = f_name.split(",");
 
 
@@ -158,6 +165,38 @@ public class Main extends Application {
             }
         });
 
+        update.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    //TODO add thread for that
+                    Label message = new Label(methods.checkUpdate(software_version));
+
+                    final Stage dialogStage = new Stage();
+                    dialogStage.initModality(Modality.WINDOW_MODAL);
+                    Button k = new Button("Ok");
+                    dialogStage.setScene(new Scene(VBoxBuilder.create().
+                            children(message, k).
+                            alignment(Pos.CENTER).padding(new Insets(5)).build()));
+
+                    dialogStage.show();
+                    k.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(final ActionEvent event) {
+
+                            dialogStage.close();
+                            //primaryStage.close();
+
+                        }
+                    });
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         count.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(final ActionEvent event) {
@@ -181,7 +220,7 @@ public class Main extends Application {
                         methods.normalizeDataFromFile3("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3.txt");
 
                         methods.normalizeDataFromPD0_PD1("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-                        methods.createCsvFile("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt", name1,"C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt","C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt","C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt");
+                        methods.createCsvFile("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt", name1, "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt");
 
 
                         return null;
@@ -230,17 +269,23 @@ public class Main extends Application {
 
                     System.out.println(outputCSV.toString());
 
-                    final GridPane pane = new GridPane();
+
+                    int ch = file1_name.getText().lastIndexOf("/");
+
+
+                    final StackPane root = new StackPane(methods.getdataAndCreateChart(outputCSV.toString(), file1_name.getText().substring(ch + 1, file1_name.getText().length() - 4)));
+
+
+                    VBox.setMargin(root, new Insets(50, 0, 0, 500));
                     final Stage stage = new Stage();
-                    final Scene scene = new Scene(methods.getdataAndCreateChart(outputCSV.toString(),file1_name.getText()),1000,500);
-                    final Button save = new Button("Save graph");
-                    pane.add(save,0,0);
-                    stage.setResizable(true);
+                    final Scene scene = new Scene(root, 1300, 800);
+
+
+                    stage.setResizable(false);
 
 
                     stage.setTitle("Wykres");
                     stage.setScene(scene);
-
 
 
                     stage.show();
@@ -269,6 +314,8 @@ public class Main extends Application {
                             }
                         }
                     });
+
+
                 }
 
 
