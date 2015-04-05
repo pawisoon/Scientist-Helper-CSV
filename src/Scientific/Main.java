@@ -14,7 +14,6 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -31,18 +30,18 @@ import java.util.Date;
 import java.util.List;
 
 import static javafx.geometry.Pos.CENTER;
-
+import static javafx.scene.layout.VBoxBuilder.create;
 
 public class Main extends Application {
-    static Thread t = null;
-    final double software_version = 1.2;
+
+    final double software_version = 1.21;
     String name1, name2, name3;
-    private Desktop desktop = Desktop.getDesktop();
+
 
     @Override
     public void start(final Stage primaryStage) {
 
-        primaryStage.setTitle("Beata's tool");
+        primaryStage.setTitle("Tool v1.2.1");
         final File saveDir = new File("Beata's tool dir");
 
         GridPane pane = new GridPane();
@@ -97,8 +96,8 @@ public class Main extends Application {
         pane.add(file3_name, 0, 3);
         pane.add(count, 1, 6);
         pane.add(file1, 0, 6);
-        pane.add(update, 2, 6);
-        pane.add(save, 3, 6);
+        pane.add(update, 3, 6);
+        pane.add(save, 2, 6);
 
 
         file1.setOnAction(new EventHandler<ActionEvent>() {
@@ -176,7 +175,7 @@ public class Main extends Application {
                     final Stage dialogStage = new Stage();
                     dialogStage.initModality(Modality.WINDOW_MODAL);
                     Button k = new Button("Ok");
-                    dialogStage.setScene(new Scene(VBoxBuilder.create().
+                    dialogStage.setScene(new Scene(create().
                             children(message, k).
                             alignment(Pos.CENTER).padding(new Insets(5)).build()));
 
@@ -235,7 +234,7 @@ public class Main extends Application {
                     final Stage dialogStage = new Stage();
                     dialogStage.initModality(Modality.WINDOW_MODAL);
                     Button k = new Button("Ok");
-                    dialogStage.setScene(new Scene(VBoxBuilder.create().
+                    dialogStage.setScene(new Scene(create().
                             children(new Text("Please select 3 files!"), k).
                             alignment(Pos.CENTER).padding(new Insets(5)).build()));
 
