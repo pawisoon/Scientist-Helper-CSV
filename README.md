@@ -17,7 +17,7 @@ Version 1.2 Relased - 4.04.2015:
 
 Version 1.2.1 Relased - 5.04.2015:
 
--Bugfixes
+- Bugfixes
 
 #TODO
 
