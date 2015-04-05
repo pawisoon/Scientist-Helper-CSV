@@ -10,6 +10,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -18,7 +19,10 @@ import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.awt.*;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.FileSystemNotFoundException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -1137,9 +1141,10 @@ public class methods {
         }
     }
 
-    public static String checkUpdate(double local_version) throws IOException {
+    public static String checkUpdate(double local_version) throws IOException, URISyntaxException {
 
         String message="";
+
         String url = "http://szydlowsky.com/apps/tool/version.html";
         Document doc = Jsoup.connect(url).get();
         String data = doc.text();
@@ -1148,7 +1153,11 @@ public class methods {
             message = "You are using the newest version.";
         }
         else if(local_version<Double.parseDouble(doc.text())) {
-            message = "Update found! Version "+doc.text()+" avaliable.";
+            message = "Update found! Version "+doc.text()+" avaliable.\n Download window will open now.";
+            Desktop.getDesktop().browse(new URI("http://szydlowsky.com/apps/tool/"));
+        }
+        else{
+            message = "Something went wring. Try again later";
         }
         return message;
     }
