@@ -15,9 +15,13 @@ Version 1.2 Relased - 4.04.2015:
 - Check for software update
 - Enjoy new design
 
+Version 1.2.1 Relased - 5.04.2015:
+
+-Bugfixes
 
 #TODO
 
+- update client
 - clean up code!!!
 - add new features for future usage
 - add OS detection and fix directiory creation
