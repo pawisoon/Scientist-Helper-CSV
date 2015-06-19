@@ -1,21 +1,10 @@
 
 package Scientific;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.layout.VBoxBuilder;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -58,13 +47,13 @@ public class methods {
             double average = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f1 = new File("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt");
-            File f2 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt");
-            File f4 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt");
-            File f5 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-            File f6 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt");
+            File saveDir = new File("");
+            File f1 = new File("Z_average.txt");
+            File f2 = new File("PD0_average.txt");
+            File f3 = new File("PD1_average.txt");
+            File f4 = new File("PD2_average.txt");
+            File f5 = new File("PD1-PD0_average.txt");
+            File f6 = new File("PD2-PD1_average.txt");
 
 
             if (!saveDir.exists()) {
@@ -148,13 +137,13 @@ public class methods {
             double average = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f1 = new File("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt");
-            File f2 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt");
-            File f4 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt");
-            File f5 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-            File f6 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt");
+            File saveDir = new File("");
+            File f1 = new File("Z_average.txt");
+            File f2 = new File("PD0_average.txt");
+            File f3 = new File("PD1_average.txt");
+            File f4 = new File("PD2_average.txt");
+            File f5 = new File("PD1-PD0_average.txt");
+            File f6 = new File("PD2-PD1_average.txt");
 
 
             if (!saveDir.exists()) {
@@ -239,13 +228,13 @@ public class methods {
             double average = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f1 = new File("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt");
-            File f2 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt");
-            File f4 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt");
-            File f5 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-            File f6 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt");
+            File saveDir = new File("");
+            File f1 = new File("Z_average.txt");
+            File f2 = new File("PD0_average.txt");
+            File f3 = new File("PD1_average.txt");
+            File f4 = new File("PD2_average.txt");
+            File f5 = new File("PD1-PD0_average.txt");
+            File f6 = new File("PD2-PD1_average.txt");
 
 
             if (!saveDir.exists()) {
@@ -330,13 +319,13 @@ public class methods {
             double average = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f1 = new File("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt");
-            File f2 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt");
-            File f4 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt");
-            File f5 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-            File f6 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt");
+            File saveDir = new File("");
+            File f1 = new File("Z_average.txt");
+            File f2 = new File("PD0_average.txt");
+            File f3 = new File("PD1_average.txt");
+            File f4 = new File("PD2_average.txt");
+            File f5 = new File("PD1-PD0_average.txt");
+            File f6 = new File("PD2-PD1_average.txt");
 
 
             if (!saveDir.exists()) {
@@ -420,13 +409,13 @@ public class methods {
             double average = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f1 = new File("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt");
-            File f2 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt");
-            File f4 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt");
-            File f5 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-            File f6 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt");
+            File saveDir = new File("");
+            File f1 = new File("Z_average.txt");
+            File f2 = new File("PD0_average.txt");
+            File f3 = new File("PD1_average.txt");
+            File f4 = new File("PD2_average.txt");
+            File f5 = new File("PD1-PD0_average.txt");
+            File f6 = new File("PD2-PD1_average.txt");
 
 
             if (!saveDir.exists()) {
@@ -511,13 +500,13 @@ public class methods {
             double average = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f1 = new File("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt");
-            File f2 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt");
-            File f4 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt");
-            File f5 = new File("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-            File f6 = new File("C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt");
+            File saveDir = new File("");
+            File f1 = new File("Z_average.txt");
+            File f2 = new File("PD0_average.txt");
+            File f3 = new File("PD1_average.txt");
+            File f4 = new File("PD2_average.txt");
+            File f5 = new File("PD1-PD0_average.txt");
+            File f6 = new File("PD2-PD1_average.txt");
 
 
             if (!saveDir.exists()) {
@@ -596,8 +585,8 @@ public class methods {
             double data = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1.txt");
+            File saveDir = new File("");
+            File f3 = new File("PD0_PD1_1.txt");
 
 
             String line = "";
@@ -647,8 +636,8 @@ public class methods {
             double data = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2.txt");
+            File saveDir = new File("");
+            File f3 = new File("PD0_PD1_2.txt");
 
 
             String line = "";
@@ -698,8 +687,8 @@ public class methods {
             double data = 0;
 
 
-            File saveDir = new File("C:\\Users\\Public\\Beata's tool dir\\");
-            File f3 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3.txt");
+            File saveDir = new File("");
+            File f3 = new File("PD0_PD1_3.txt");
 
 
             String line = "";
@@ -741,7 +730,7 @@ public class methods {
         File f1 = new File(file1_string);
 
 
-        File output1 = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt");
+        File output1 = new File("PD0_PD1_normalised.txt");
 
 
         int counter = 0;
@@ -780,7 +769,7 @@ public class methods {
 
     public static void normalizeDataFromFile1(String file1_string) {
         File f1 = new File(file1_string);
-        File output = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt");
+        File output = new File("PD0_PD1_1_normalised.txt");
 
         int counter = 0;
         double firstValueInFile = 0;
@@ -816,7 +805,7 @@ public class methods {
 
     public static void normalizeDataFromFile2(String file1_string) {
         File f1 = new File(file1_string);
-        File output = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt");
+        File output = new File("PD0_PD1_2_normalised.txt");
 
         int counter = 0;
         double firstValueInFile = 0;
@@ -852,7 +841,7 @@ public class methods {
 
     public static void normalizeDataFromFile3(String file1_string) {
         File f1 = new File(file1_string);
-        File output = new File("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt");
+        File output = new File("PD0_PD1_3_normalised.txt");
 
         int counter = 0;
         double firstValueInFile = 0;
@@ -1120,7 +1109,7 @@ public class methods {
             ac.getData().addAll(series, series1, series2, series3);
 
 
-            cleanUpOldFiles("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3.txt");
+            cleanUpOldFiles("Z_average.txt", "PD0_average.txt", "PD1_average.txt", "PD2_average.txt", "PD1-PD0_average.txt", "PD2-PD1_average.txt", "PD0_PD1_normalised.txt", "PD0_PD1_1_normalised.txt", "PD0_PD1_2_normalised.txt", "PD0_PD1_3_normalised.txt", "PD0_PD1_1.txt", "PD0_PD1_2.txt", "PD0_PD1_3.txt");
 
 
         } catch (FileNotFoundException e) {
@@ -1159,6 +1148,6 @@ public class methods {
         else{
             message = "Something went wring. Try again later";
         }
-        return message;
+        return message.toString();
     }
 }

@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 
 import javax.imageio.IIOException;
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -217,12 +216,12 @@ public class Main extends Application {
                         methods.saveDataFrom2File(file2_name.getText());
                         methods.saveDataFrom3File(file3_name.getText());
 
-                        methods.normalizeDataFromFile1("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1.txt");
-                        methods.normalizeDataFromFile2("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2.txt");
-                        methods.normalizeDataFromFile3("C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3.txt");
+                        methods.normalizeDataFromFile1("PD0_PD1_1.txt");
+                        methods.normalizeDataFromFile2("PD0_PD1_2.txt");
+                        methods.normalizeDataFromFile3("PD0_PD1_3.txt");
 
-                        methods.normalizeDataFromPD0_PD1("C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt");
-                        methods.createCsvFile("C:\\Users\\Public\\Beata's tool dir\\Z_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD1-PD0_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD2-PD1_average.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_normalised.txt", name1, "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_1_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_2_normalised.txt", "C:\\Users\\Public\\Beata's tool dir\\PD0_PD1_3_normalised.txt");
+                        methods.normalizeDataFromPD0_PD1("PD1-PD0_average.txt");
+                        methods.createCsvFile("Z_average.txt", "PD0_average.txt", "PD1_average.txt", "PD2_average.txt", "PD1-PD0_average.txt", "PD2-PD1_average.txt", "PD0_PD1_normalised.txt", name1, "PD0_PD1_1_normalised.txt", "PD0_PD1_2_normalised.txt", "PD0_PD1_3_normalised.txt");
 
 
                         return null;
